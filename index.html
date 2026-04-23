@@ -1,11 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>Test</title>
-    <style>body{text-align:center;margin-top:100px;font-size:24px;}</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>App Link Test</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+    .btn, a.test-link {
+      display: block;
+      margin: 12px 0;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: #f3f4f6;
+      color: #111827;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .note { color: #6b7280; font-size: 14px; }
+    pre {
+      white-space: pre-wrap;
+      background: #111827;
+      color: #f9fafb;
+      padding: 12px;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
-    <a href="https://www.leaptic.tech/v1/open/webview?url=https%3A%2F%2Fwww.leaptic.tech&scene=wechat_share&v=1">https://www.leaptic.tech/v1/open/webview?url=https%3A%2F%2Fwww.leaptic.tech&scene=wechat_share&v=1</a>
+  <h2>Leaptic App Link Test</h2>
+
+  <p class="note">
+    先在系统浏览器里打开本页，再点击下面的链接；不要先从地址栏直接粘贴目标链接。
+  </p>
+
+  <a
+    class="test-link"
+    href="https://www.leaptic.tech/v1/open/webview?url=https%3A%2F%2Fwww.leaptic.tech%2Fdownload&scene=html_anchor&v=1">
+    1. HTML 直接超链接点击
+  </a>
+
+  <button
+    class="btn"
+    onclick="location.href='https://www.leaptic.tech/v1/open/webview?url=https%3A%2F%2Fwww.leaptic.tech%2Fdownload&scene=js_location&v=1'">
+    2. JS location 跳转
+  </button>
+
+  <button
+    class="btn"
+    onclick="window.open('https://www.leaptic.tech/v1/open/webview?url=https%3A%2F%2Fwww.leaptic.tech%2Fdownload&scene=window_open&v=1', '_self')">
+    3. window.open(_self) 跳转
+  </button>
+
+  <h3>环境信息</h3>
+  <pre id="env"></pre>
+
+  <script>
+    document.getElementById('env').textContent =
+      'UA: ' + navigator.userAgent + '\n' +
+      'href: ' + location.href + '\n' +
+      'referrer: ' + document.referrer;
+  </script>
 </body>
 </html>
